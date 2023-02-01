@@ -1,6 +1,7 @@
 # 3Webd-Museum
+
 It's a school project for the react course. It is an app to show museum articles.
-=======
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
