@@ -1,0 +1,6 @@
+/** @format */
+.nav {
+  width: center;
+  height: 100vh;
+  background-image: linear-gradient(to right, #c8c8c8, #fefee2);
+}

@@ -1,5 +1,43 @@
 /** @format */
 
+import React, { useEffect, useState } from 'react';
+import './Header.css';
+
+// ---- The header component which contains a background image and the search bar and the button search ---- //
+// ---------------------- It is displayed in all website pages -------------------- //
+
+function Header() {
+  return (
+    <header
+      className="header"
+      style={{
+        backgroundSize: 'cover',
+        backgroundImage: `url("https://headerart.weebly.com/uploads/5/7/5/7/5757212/eye-catching-colorful-paints-art-header_orig.jpg")`,
+        backgroundPosition: 'center center',
+      }}
+    >
+      <div className="header__contents">
+        <h3 className="header__title">
+          This a gallery museum articles. Enjoy this artifacts and art
+          collection. Type anything to learn about it in more details
+        </h3>
+        <div className="header__buttons">
+          <input
+            type="text"
+            name="search-bar"
+            id="search-bar"
+            placeholder="Search anything"
+            className="header__input"
+          />
+          <button className="header__button">Search</button>
+        </div>
+      </div>
+      <div className="header--fadeBottom" />
+    </header>
+  );
+}
+
+/* 
 import * as React from 'react';
 
 import Button from 'react-bootstrap/Button';
@@ -51,5 +89,5 @@ function Header() {
     </Navbar>
   );
 }
-
+*/
 export default Header;
