@@ -8,9 +8,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Configuration
 
-### `npm install bootstrap@5.2.3`
-### `npm install react-bootstrap bootstrap`
-### `npm start`
+#### `npm install bootstrap@5.2.3`
+#### `npm install react-bootstrap bootstrap`
+#### `npm install axios`
+#### `npm start`
 
 
 Runs the app in the development mode.\
