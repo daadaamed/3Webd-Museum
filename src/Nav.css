@@ -4,3 +4,42 @@
   height: 100vh;
   background-image: linear-gradient(to right, #c8c8c8, #fefee2);
 }
+.nav > h2 {
+  padding-top: 30px;
+  padding-left: 400px;
+  padding-bottom: 0px;
+  padding-right: 200px;
+  color: gray;
+}
+
+.nav__posters {
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  gap: 10px;
+  padding: 20px;
+}
+
+.nav__posters::-webkit-scrollbar {
+  display: none;
+}
+
+.nav__poster {
+  object-fit: contain;
+  width: 100%;
+  max-height: 100px;
+  margin-right: 10px;
+  transition: transform 450ms;
+}
+
+.nav__poster:hover {
+  transform: scale(1.08);
+}
+
+.nav__posterLarge {
+  max-height: 250px;
+}
+
+.nav__posterLarge:hover {
+  transform: scale(1.09);
+}
