@@ -20,7 +20,7 @@ function Header() {
       <div className="header__contents">
         <h3 className="header__title">
           This a gallery museum articles. Enjoy this artifacts and art
-          collection. Type anything to learn about it in more details
+          collection. Type anything to learn about it in more details.
         </h3>
         <div className="header__buttons">
           <input
@@ -37,7 +37,6 @@ function Header() {
     </header>
   );
 }
-
 /* 
 import * as React from 'react';
 
