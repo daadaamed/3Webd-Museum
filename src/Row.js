@@ -19,17 +19,18 @@ function Row(objectId) {
         console.log(
           `https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectId2.objectId}`
         );
-        setTitle(objectId2.objectId);
-        return response.data.title;
+
+        return response.data.primaryImageSmall;
       } catch (error) {
         console.error(error);
       }
     };
 
-    getData().then((data) =>
-      console.log(`${data}===${objectId2.objectId} title =${title}`)
-    );
-  });
+    getData().then((data) => {
+      console.log(`${data}===${objectId2.objectId} title =${title}`);
+      setTitle(data);
+    });
+  }, []);
 
   /*
   const [title, setTitle] = useState([]);
@@ -50,7 +51,7 @@ function Row(objectId) {
   */
   return (
     <div className="Row">
-      <img src="https://images.metmuseum.org/CRDImages/ep/web-large/DT1025.jpg" />
+      <img src={title} />
     </div>
   );
 }
