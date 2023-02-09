@@ -1,8 +1,8 @@
 /** @format */
 import * as React from 'react';
-import Nav from './Nav';
-import Header from './Header';
-import SpecificSearchBars from './SpecificSearchBars';
+import HomeScreen from './components/HomeScreen';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ArticlePage from './ArticlePage';
 import './App.css';
 
 // ----- This page will keep all page navigation within the website ----- //
@@ -10,17 +10,12 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <Header />
-      <SpecificSearchBars
-        title="Search By Department"
-        placeholder="Department"
-      />
-      <SpecificSearchBars
-        title="Search By Category   "
-        placeholder="Category"
-      />
-      <SpecificSearchBars title="Search By Date       " placeholder="Date" />
-      <Nav />
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/" element={<HomeScreen />}></Route>
+          <Route path="/article/111" element={<ArticlePage />}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
