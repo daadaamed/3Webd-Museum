@@ -11,7 +11,9 @@
   padding-right: 200px;
   color: gray;
 }
-
+.nav > h2 > p {
+  font-size: small;
+}
 .nav__posters {
   display: flex;
   overflow-y: hidden;
@@ -23,7 +25,13 @@
 .nav__posters::-webkit-scrollbar {
   display: none;
 }
-
+.loading {
+  object-fit: contain;
+  width: 100%;
+  max-height: 100px;
+  margin-right: 10px;
+  transition: transform 450ms;
+}
 .nav__poster {
   object-fit: contain;
   width: 100%;
