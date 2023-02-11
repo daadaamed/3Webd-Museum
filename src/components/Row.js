@@ -38,7 +38,10 @@ function Row(result) {
 
   return (
     <div className="Row">
-      <img src={image} /> <h3 className="Row__title">{title}</h3>
+      <a href={`/article/${objectId}`}>
+        <img src={image} />
+      </a>
+      <h3 className="Row__title">{title}</h3>
     </div>
   );
 }

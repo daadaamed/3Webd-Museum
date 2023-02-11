@@ -3,6 +3,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 
 import './SpecificSearchBars.css';
+// naadi esm title baad l click w nchecki ken specificonclick== haja m les department b if w else w ken ey nrajaa esm l department lel header component
 
 // --- This page will show 3 search bars --- //
 
@@ -26,7 +27,9 @@ function SpecificSearchBars({
   // useEffect(() => {
   //   handleSpecificSearchInputClick(this.specificOnClick);
   // }, [handleClick]);
-  console.log(`value is ${specificSearch} when click for ${specificOnClick}`);
+  console.log(
+    `value is ${specificSearch} when click for ${specificOnClick} in component = ${title}`
+  );
   // console.log(
   //   `specific fct is ${handleSpecificSearchInputClick(this.specificOnClick)}`
   // );
