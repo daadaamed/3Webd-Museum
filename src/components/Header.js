@@ -9,17 +9,31 @@ import './Header.css';
 // ---------------------- It is displayed in all website pages -------------------- //
 
 // the background image can be changed to gif
-function Header() {
+function Header(props) {
   const [onClickSpecfic, setOnClickSpecific] = useState(false);
   const [searchInput, setSearchInput] = useState('');
   const [textInInput, setTextInInput] = useState('');
-  // when click on specific search bar, 3 bars appear
+  const [specificOnClick, setSpecificOnClick] = useState('');
+
+  // in input field of specific search bar
+
+  const handleSpecificSearchInputClick = (specificOnClick) => {
+    console.log('clicked in input of specifi search');
+    setSpecificOnClick(specificOnClick);
+  };
+  useEffect(() => {
+    setSpecificOnClick(specificOnClick);
+    console.log(
+      `clicked in input of specifi search which value is ${specificOnClick}`
+    );
+  }, [handleSpecificSearchInputClick]);
+  //when click on specific search bar, 3 bars appear
   const handleSpecificSearchClick = () => {
     setOnClickSpecific(true);
   };
   // get text from input when click on search
   const handleSearchBarClick = () => {
-    console.log('clicked on search');
+    //console.log('clicked on search');
     setTextInInput(searchInput);
     //event.preventDefault();
   };
@@ -73,6 +87,7 @@ function Header() {
         <div>
           {' '}
           <SpecificSearchBars
+            handleSpecificSearchInputClick={handleSpecificSearchInputClick}
             title="Search By Department"
             placeholder="Department"
           />

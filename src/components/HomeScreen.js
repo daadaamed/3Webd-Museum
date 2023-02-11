@@ -1,9 +1,7 @@
 /** @format */
 
 import * as React from 'react';
-import Nav from './Nav';
 import Header from './Header';
-import SpecificSearchBars from './SpecificSearchBars';
 function HomeScreen() {
   //  ----------- NEXT TASKS ------------------------- //
   // when click search, update photos related to that search
