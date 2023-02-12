@@ -13,7 +13,7 @@ function Nav(textInInput) {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const textInput = JSON.stringify(textInInput.textInInput);
-  console.log(`in Nav, text input ${textInput} and articles is`); // (result.objectId)
+  //console.log(`in Nav, text input ${textInput} and articles is ${result.objectId}`); // (result.objectId)
   let url = `https://collectionapi.metmuseum.org/public/collection/v1/search?isHighlight=true&isImage=true&q=sun`;
   if (textInput.length == 2) {
     console.log(

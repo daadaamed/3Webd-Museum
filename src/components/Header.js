@@ -18,7 +18,7 @@ function Header(props) {
   // in input field of specific search bar
 
   const handleSpecificSearchInputClick = (specificOnClick) => {
-    console.log('clicked in input of specifi search');
+    //console.log('clicked in input of specifi search');
     setSpecificOnClick(specificOnClick);
   };
   useEffect(() => {

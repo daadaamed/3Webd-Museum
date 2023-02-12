@@ -3,6 +3,9 @@
 import React, { useEffect, useState, useRef } from 'react';
 
 import './SpecificSearchBars.css';
+
+// ----------The specific search bar component which contains an input text and a click button  -----//
+
 // naadi esm title baad l click w nchecki ken specificonclick== haja m les department b if w else w ken ey nrajaa esm l department lel header component
 
 // --- This page will show 3 search bars --- //
@@ -17,19 +20,42 @@ function SpecificSearchBars({
 
   const handleClick = () => {
     try {
-      console.log(`specific search inside handleclick is ${specificSearch}`);
-      setSpecificOnClick(specificSearch);
+      //console.log(`specific search inside handleclick is ${specificSearch}`);
+      if (
+        specificSearch == 'American Decorative Arts' ||
+        specificSearch == 'Ancient Near Eastern Art' ||
+        specificSearch == 'Arms and Armor' ||
+        specificSearch == 'Arts of Africa, Oceania, and the Americas' ||
+        specificSearch == 'Asian Art' ||
+        specificSearch == 'The Cloisters' ||
+        specificSearch == 'The Costume Institute' ||
+        specificSearch == 'Drawings and Prints' ||
+        specificSearch == 'Egyptian Ar' ||
+        specificSearch == 'European Paintings' ||
+        specificSearch == 'European Sculpture and Decorative Arts' ||
+        specificSearch == 'Greek and Roman Art' ||
+        specificSearch == 'Islamic Art' ||
+        specificSearch == 'The Robert Lehman Collection' ||
+        specificSearch == 'The Libraries' ||
+        specificSearch == 'Medieval Art' ||
+        specificSearch == 'Musical Instruments' ||
+        specificSearch == 'Photographs' ||
+        specificSearch == 'Modern Art'
+      ) {
+        setSpecificOnClick(specificSearch);
+      } else {
+        setSpecificOnClick('');
+      }
+
       handleSpecificSearchInputClick(specificOnClick);
     } catch (e) {
       console.error('something went wrong', e);
     }
   };
-  // useEffect(() => {
-  //   handleSpecificSearchInputClick(this.specificOnClick);
-  // }, [handleClick]);
-  console.log(
-    `value is ${specificSearch} when click for ${specificOnClick} in component = ${title}`
-  );
+
+  // console.log(
+  //   `value is ${specificSearch} when click for ${specificOnClick} in component = ${title}`
+  // );
   // console.log(
   //   `specific fct is ${handleSpecificSearchInputClick(this.specificOnClick)}`
   // );
