@@ -9,10 +9,10 @@ import Row from './Row';
 // ----------------- à faire ------------------------ //
 // apres de mettre les articles au hasard, faire onClick pour que ça mene a la page de l'article sélectionné
 // faire les fonctionnalités de la barre de recherche
-function Nav(textInInput, specificDepartment) {
+function Nav({ textInInput, specificDepartment }) {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const textInput = JSON.stringify(textInInput.textInInput);
+  const textInput = JSON.stringify(textInInput);
   const specificDepartment1 = JSON.stringify(specificDepartment);
   console.log(`specificDepartment1 is ${specificDepartment1}`);
   //console.log(`in Nav, text input ${textInput} and articles is ${result.objectId}`); // (result.objectId)
@@ -38,7 +38,7 @@ function Nav(textInInput, specificDepartment) {
     setArticles((articles) => []);
     //setIsLoading(true);
     fetchData();
-  }, [textInput]);
+  }, [textInput, specificDepartment]);
 
   return (
     <div className="nav">
