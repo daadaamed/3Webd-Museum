@@ -9,10 +9,12 @@ import Row from './Row';
 // ----------------- à faire ------------------------ //
 // apres de mettre les articles au hasard, faire onClick pour que ça mene a la page de l'article sélectionné
 // faire les fonctionnalités de la barre de recherche
-function Nav(textInInput) {
+function Nav(textInInput, specificDepartment) {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const textInput = JSON.stringify(textInInput.textInInput);
+  const specificDepartment1 = JSON.stringify(specificDepartment);
+  console.log(`specificDepartment1 is ${specificDepartment1}`);
   //console.log(`in Nav, text input ${textInput} and articles is ${result.objectId}`); // (result.objectId)
   let url = `https://collectionapi.metmuseum.org/public/collection/v1/search?isHighlight=true&isImage=true&q=sun`;
   if (textInput.length == 2) {
@@ -55,7 +57,7 @@ function Nav(textInInput) {
             alt="tableau artistique"
           />
         ) : articles == null || articles.length == 0 ? (
-          <p>Sorry, no Articles found with this name.</p>
+          <p>Sorry, no results found. Try another search!</p>
         ) : (
           // map objects from the API to access them
           articles.map((article) => <Row objectId={article} />)

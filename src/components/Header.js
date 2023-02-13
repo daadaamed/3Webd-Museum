@@ -13,18 +13,19 @@ function Header(props) {
   const [onClickSpecfic, setOnClickSpecific] = useState(false);
   const [searchInput, setSearchInput] = useState('');
   const [textInInput, setTextInInput] = useState('');
-  const [specificOnClick, setSpecificOnClick] = useState('');
+  const [specificDepartment, setSpecificDepartment] = useState('aa');
+  const [field, setField] = useState('');
 
   // in input field of specific search bar
 
-  const handleSpecificSearchInputClick = (specificOnClick) => {
+  const handleSpecificSearchInputClick = (specificDepartment) => {
     //console.log('clicked in input of specifi search');
-    setSpecificOnClick(specificOnClick);
+    setSpecificDepartment(specificDepartment);
   };
   useEffect(() => {
-    setSpecificOnClick(specificOnClick);
+    setSpecificDepartment(specificDepartment);
     console.log(
-      `clicked in input of specifi search which value is ${specificOnClick}`
+      `clicked in input of specifi search which value is ${specificDepartment}`
     );
   }, [handleSpecificSearchInputClick]);
   //when click on specific search bar, 3 bars appear
@@ -103,7 +104,7 @@ function Header(props) {
       ) : (
         <div> </div>
       )}
-      <Nav textInInput={textInInput} />
+      <Nav textInInput={textInInput} specificDepartment={specificDepartment} />
     </div>
   );
 }
