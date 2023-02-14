@@ -9,6 +9,10 @@
   transition: transform 450ms;
 }
 
+.Row__hidden {
+  display: none;
+}
+
 .Row > a > img:hover {
   transform: scale(1.1);
 }

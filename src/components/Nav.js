@@ -7,14 +7,16 @@ import Row from './Row';
 // ---- This page contains the articles to show from API ---- //
 
 // ----------------- à faire ------------------------ //
-// apres de mettre les articles au hasard, faire onClick pour que ça mene a la page de l'article sélectionné
-// faire les fonctionnalités de la barre de recherche
+// nzid try catch l les fonctions
+// pour faire les conditons de depart, je peux passer specificDepartment l row component w naamel condition ghadi
 function Nav({ textInInput, specificDepartment }) {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const textInput = JSON.stringify(textInInput);
   const specificDepartment1 = JSON.stringify(specificDepartment);
-  console.log(`specificDepartment1 is ${specificDepartment1}`);
+  console.log(
+    `specificDepartment1 is ${specificDepartment1} which length is ${specificDepartment1.length} `
+  );
   //console.log(`in Nav, text input ${textInput} and articles is ${result.objectId}`); // (result.objectId)
   let url = `https://collectionapi.metmuseum.org/public/collection/v1/search?isHighlight=true&isImage=true&q=sun`;
   if (textInput.length == 2) {
@@ -60,7 +62,10 @@ function Nav({ textInInput, specificDepartment }) {
           <p>Sorry, no results found. Try another search!</p>
         ) : (
           // map objects from the API to access them
-          articles.map((article) => <Row objectId={article} />)
+          // add map filter or reduce to check for speciifc
+          articles.map((article) => (
+            <Row objectId={article} specificDepartment1={specificDepartment1} />
+          ))
         )}
       </div>
     </div>

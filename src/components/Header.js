@@ -13,7 +13,7 @@ function Header(props) {
   const [onClickSpecfic, setOnClickSpecific] = useState(false);
   const [searchInput, setSearchInput] = useState('');
   const [textInInput, setTextInInput] = useState('');
-  const [specificDepartment, setSpecificDepartment] = useState('aa');
+  const [specificDepartment, setSpecificDepartment] = useState('');
   const [field, setField] = useState('');
 
   // in input field of specific search bar

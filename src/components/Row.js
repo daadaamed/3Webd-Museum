@@ -6,11 +6,17 @@ import './Row.css';
 
 // how to pass data to the return in JSX : why image still empty
 
-function Row(result) {
-  // objectId devient result
-  const objectId = JSON.stringify(result.objectId); // (result.objectId)
+function Row(props) {
+  const { objectId, specificDepartment1 } = props;
+  // console.log(`dep is ${JSON.parse(JSON.stringify(specificDepartment1))}`);
+  // console.log(`specificDepartment1 sec is ${specificDepartment1}`);
+  //const objectId = JSON.stringify(objectId.objectId); // (objectId.objectId)
+  //const objectId = objectId; // (objectId.objectId)
   const [image, setImage] = useState('');
   const [title, setTitle] = useState('');
+  const [shouldHide, setShouldHide] = useState(false);
+  // console.log(`objectId is ${JSON.parse(JSON.stringify(objectId))}`);
+
   useEffect(() => {
     //const objectId2 = JSON.parse(objectId); // a degager
     //console.log('resultat', objectId);
@@ -26,18 +32,36 @@ function Row(result) {
     };
     // à corriger
     getData().then((data) => {
-      if (data.primaryImageSmall !== '' && data.title.length > 2) {
-        setImage(data.primaryImageSmall);
-        setTitle(data.title);
+      if (specificDepartment1.length > 3) {
+        if (
+          specificDepartment1.includes(data.department) &&
+          data.primaryImageSmall !== '' &&
+          data.title.length > 2
+        ) {
+          setShouldHide(false);
+          console.log('cond1');
+          setImage(data.primaryImageSmall);
+          setTitle(data.title);
+        } else {
+          setShouldHide(true);
+          console.log('cond2');
+        }
+      } else {
+        if (data.primaryImageSmall !== '' && data.title.length > 2) {
+          setShouldHide(false);
+          console.log('cond3');
+          setImage(data.primaryImageSmall);
+          setTitle(data.title);
+        }
       }
     });
   }, []);
   // console.log(
-  // `datas are objectId is: ${objectId} having the title : ${title} and the img :${image}`
-  //);
+  //   `datas are objectId is: ${objectId} having the title : ${title} and the img :${image}`
+  // );
 
   return (
-    <div className="Row">
+    <div className={shouldHide ? 'Row__hidden' : 'Row'}>
       <a href={`/article/${objectId}`}>
         <img src={image} />
       </a>

@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState } from 'react';
 
 import './SpecificSearchBars.css';
 
@@ -31,7 +31,7 @@ function SpecificSearchBars({
           specificSearch == 'The Cloisters' ||
           specificSearch == 'The Costume Institute' ||
           specificSearch == 'Drawings and Prints' ||
-          specificSearch == 'Egyptian Ar' ||
+          specificSearch == 'Egyptian Art' ||
           specificSearch == 'European Paintings' ||
           specificSearch == 'European Sculpture and Decorative Arts' ||
           specificSearch == 'Greek and Roman Art' ||
