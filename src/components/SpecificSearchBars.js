@@ -17,6 +17,7 @@ function SpecificSearchBars({
 }) {
   const [specificSearch, setSpecificSearch] = useState('');
   const [specificDepartment, setSpecificDepartment] = useState('');
+  const [specificCategory, setSpecificCategory] = useState('');
 
   const handleClick = () => {
     try {
@@ -44,15 +45,22 @@ function SpecificSearchBars({
           specificSearch == 'Modern Art'
         ) {
           setSpecificDepartment(specificSearch);
+          // pass data to parent component
+          handleSpecificSearchInputClick(specificDepartment, specificCategory);
+          console.log(
+            `value is ${specificSearch} when click for ${title} for value of dep ${specificDepartment}`
+          );
         } else {
           setSpecificDepartment('');
         }
       }
-
-      handleSpecificSearchInputClick(specificDepartment);
-      console.log(
-        `value is ${specificSearch} when click for ${specificDepartment} in condition = ${title}`
-      );
+      if (title == 'Search By Category   ') {
+        setSpecificCategory(specificSearch);
+        handleSpecificSearchInputClick(specificDepartment, specificCategory);
+        console.log(
+          `value is ${specificSearch} when click for ${title} for value of cat: ${specificCategory}`
+        );
+      }
     } catch (e) {
       console.error('something went wrong', e);
     }

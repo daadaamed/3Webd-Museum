@@ -4,10 +4,10 @@ import React, { useEffect, useState } from 'react';
 import axios from './axios';
 import './Row.css';
 
-// how to pass data to the return in JSX : why image still empty
+// the article itself, display the article and the image
 
 function Row(props) {
-  const { objectId, specificDepartment1 } = props;
+  const { objectId, specificDepartment1, specificCategory } = props;
   // console.log(`dep is ${JSON.parse(JSON.stringify(specificDepartment1))}`);
   // console.log(`specificDepartment1 sec is ${specificDepartment1}`);
   //const objectId = JSON.stringify(objectId.objectId); // (objectId.objectId)
