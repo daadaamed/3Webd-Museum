@@ -13,26 +13,23 @@ function Header(props) {
   const [searchInput, setSearchInput] = useState('');
   const [textInInput, setTextInInput] = useState('');
   const [specificDepartment, setSpecificDepartment] = useState('');
-  const [specificCategory, setSpecificCategory] = useState('');
+  const [specificYear, setSpecificYear] = useState('');
 
   // in input field of specific search bar, manage onclick of  specific search
 
-  const handleSpecificSearchInputClick = (
-    specificDepartment,
-    specificCategory
-  ) => {
+  const handleSpecificSearchInputClick = (specificDepartment, specificYear) => {
     //console.log('clicked in input of specifi search');
     setSpecificDepartment(specificDepartment);
-    setSpecificCategory(specificCategory);
+    setSpecificYear(specificYear);
   };
   useEffect(() => {
     setSpecificDepartment(specificDepartment);
-    setSpecificCategory(specificCategory);
+    setSpecificYear(specificYear);
     console.log(
       `clicked in input of specific dep which value is ${specificDepartment}`
     );
     console.log(
-      `clicked in input of specific category which value is ${specificCategory}`
+      `clicked in input of specific Year which value is ${specificYear}`
     );
   }, [handleSpecificSearchInputClick]);
 
@@ -100,13 +97,13 @@ function Header(props) {
           {' '}
           <SpecificSearchBars
             handleSpecificSearchInputClick={handleSpecificSearchInputClick}
-            title="Search By Department"
+            title="Search By Dept"
             placeholder="Department"
           />
           <SpecificSearchBars
             handleSpecificSearchInputClick={handleSpecificSearchInputClick}
-            title="Search By Category   "
-            placeholder="Category"
+            title="Search By Year            "
+            placeholder="Year"
           />
           <SpecificSearchBars
             title="Search By Date       "
@@ -119,7 +116,7 @@ function Header(props) {
       <Nav
         textInInput={textInInput}
         specificDepartment={specificDepartment}
-        specificCategory={specificCategory}
+        specificYear={specificYear}
       />
     </div>
   );

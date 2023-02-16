@@ -7,7 +7,7 @@ import './Row.css';
 // the article itself, display the article and the image
 
 function Row(props) {
-  const { objectId, specificDepartment1, specificCategory } = props;
+  const { objectId, specificDepartment1, specificYear } = props;
   // console.log(`dep is ${JSON.parse(JSON.stringify(specificDepartment1))}`);
   // console.log(`specificDepartment1 sec is ${specificDepartment1}`);
   //const objectId = JSON.stringify(objectId.objectId); // (objectId.objectId)
@@ -32,24 +32,41 @@ function Row(props) {
     };
     // à corriger
     getData().then((data) => {
-      if (specificDepartment1.length > 3) {
+      if (specificDepartment1.length > 3 && specificYear.length > 3) {
         if (
           specificDepartment1.includes(data.department) &&
+          specificYear == data.objectEndDate &&
           data.primaryImageSmall !== '' &&
           data.title.length > 2
         ) {
           setShouldHide(false);
-          console.log('cond1');
+          console.log('cond1 &&');
           setImage(data.primaryImageSmall);
           setTitle(data.title);
         } else {
           setShouldHide(true);
-          console.log('cond2');
+          console.log('cond2 && else');
+        }
+      } else if (specificDepartment1.length > 3 || specificYear.length > 3) {
+        if (
+          (specificDepartment1.includes(data.department) ||
+            specificDepartment1.length < 3) &&
+          (specificYear == data.objectEndDate || specificYear.length < 3) &&
+          data.primaryImageSmall !== '' &&
+          data.title.length > 2
+        ) {
+          setShouldHide(false);
+          console.log('cond3 ||');
+          setImage(data.primaryImageSmall);
+          setTitle(data.title);
+        } else {
+          setShouldHide(true);
+          console.log('cond4 || else');
         }
       } else {
         if (data.primaryImageSmall !== '' && data.title.length > 2) {
           setShouldHide(false);
-          console.log('cond3');
+          console.log('cond5');
           setImage(data.primaryImageSmall);
           setTitle(data.title);
         }

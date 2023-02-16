@@ -6,7 +6,7 @@ import './Nav.css';
 import Row from './Row';
 // ---- This page contains the articles to show from API ---- //
 
-function Nav({ textInInput, specificDepartment, specificCategory }) {
+function Nav({ textInInput, specificDepartment, specificYear }) {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const textInput = JSON.stringify(textInInput);
@@ -43,7 +43,7 @@ function Nav({ textInInput, specificDepartment, specificCategory }) {
     setArticles((articles) => []);
     //setIsLoading(true);
     fetchData();
-  }, [textInput, specificDepartment, specificCategory]);
+  }, [textInput, specificDepartment, specificYear]);
 
   return (
     <div className="nav">
@@ -69,7 +69,7 @@ function Nav({ textInInput, specificDepartment, specificCategory }) {
             <Row
               objectId={article}
               specificDepartment1={specificDepartment1}
-              specificCategory={specificCategory}
+              specificYear={specificYear}
             />
           ))
         )}

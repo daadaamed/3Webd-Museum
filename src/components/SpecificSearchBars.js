@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import './SpecificSearchBars.css';
 
@@ -17,7 +17,7 @@ function SpecificSearchBars({
 }) {
   const [specificSearch, setSpecificSearch] = useState('');
   const [specificDepartment, setSpecificDepartment] = useState('');
-  const [specificCategory, setSpecificCategory] = useState('');
+  const [specificYear, setSpecificYear] = useState('');
 
   const handleClick = () => {
     try {
@@ -46,7 +46,7 @@ function SpecificSearchBars({
         ) {
           setSpecificDepartment(specificSearch);
           // pass data to parent component
-          handleSpecificSearchInputClick(specificDepartment, specificCategory);
+          //handleSpecificSearchInputClick(specificDepartment, specificYear);
           console.log(
             `value is ${specificSearch} when click for ${title} for value of dep ${specificDepartment}`
           );
@@ -54,11 +54,11 @@ function SpecificSearchBars({
           setSpecificDepartment('');
         }
       }
-      if (title == 'Search By Category   ') {
-        setSpecificCategory(specificSearch);
-        handleSpecificSearchInputClick(specificDepartment, specificCategory);
+      if (title == 'Search By Year   ') {
+        setSpecificYear(specificSearch);
+        // handleSpecificSearchInputClick(specificDepartment, specificYear);
         console.log(
-          `value is ${specificSearch} when click for ${title} for value of cat: ${specificCategory}`
+          `value is ${specificSearch} when click for ${title} for value of cat: ${specificYear}`
         );
       }
     } catch (e) {
@@ -66,6 +66,11 @@ function SpecificSearchBars({
     }
   };
 
+  useEffect(() => {
+    if (specificYear != '' || specificDepartment != '') {
+      handleSpecificSearchInputClick(specificDepartment, specificYear);
+    }
+  }, [handleClick]);
   // console.log(
   //   `specific fct is ${handleSpecificSearchInputClick(this.specificOnClick)}`
   // );
