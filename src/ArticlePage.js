@@ -5,25 +5,66 @@ import Header from './components/Header';
 import axios from 'axios';
 import './ArticlePage.css';
 
+// je pense au lieu d'appeler le component header, fait appel juste à cette partie du code pour ne pas avoir toute la liste
+/*
+ <div>
+      <header
+        className="header"
+        style={{
+          backgroundSize: 'cover',
+          backgroundImage: `url("https://headerart.weebly.com/uploads/5/7/5/7/5757212/eye-catching-colorful-paints-art-header_orig.jpg")`,
+          backgroundPosition: 'center center',
+        }}
+      >
+        <div className="header__contents">
+          <h3 className="header__title">
+            This a gallery museum articles. Enjoy this artifacts and art
+            collection. Type anything to learn about it in more details.
+          </h3>
+          <div className="header__buttons">
+            <input
+              type="text"
+              name="search-bar"
+              value={searchInput}
+              id="search-bar"
+              placeholder="Search anything"
+              className="header__input"
+              onChange={(e) => {
+                setSearchInput(e.target.value);
+              }}
+            />
+            <button
+              // search bar button
+              onClick={handleSearchBarClick}
+              className="header__button"
+            >
+              Search
+            </button>
+            <button
+              // specific search bar button
+              onClick={handleSpecificSearchClick}
+              className="header__button"
+            > 
+*/
 
 function ArticlePage() {
-
   const [isLoading, setIsLoading] = useState(true);
   const [article,  setArticle] = useState("");
-  const [wikidata,  setWikidata] = useState("");
 
   let articleId = useParams().id;
-  let url = "https://collectionapi.metmuseum.org/public/collection/v1/objects/" + articleId;
+  let url =
+    'https://collectionapi.metmuseum.org/public/collection/v1/objects/' +
+    articleId;
 
-  var wikipediaDescription = "(no description)"
-  
+  var wikipediaDescription = '(no description)';
+
   useEffect(() => {
     async function fetchData() {
       let request = await axios.get(url);
       setArticle(request.data);
     }
     setIsLoading(true);
-    setArticle("");
+    setArticle('');
     fetchData();
     setIsLoading(false);
   }, [url]);

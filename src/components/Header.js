@@ -8,30 +8,39 @@ import './Header.css';
 // ---- The header component which contains a background image and the search bar and the button search ---- //
 // ---------------------- It is displayed in all website pages -------------------- //
 
-// the background image can be changed to gif
 function Header(props) {
   const [onClickSpecfic, setOnClickSpecific] = useState(false);
   const [searchInput, setSearchInput] = useState('');
   const [textInInput, setTextInInput] = useState('');
-  const [specificOnClick, setSpecificOnClick] = useState('');
+  const [specificDepartment, setSpecificDepartment] = useState('');
+  const [specificYear, setSpecificYear] = useState('');
 
-  // in input field of specific search bar
+  // in input field of specific search bar, manage onclick of  specific search
 
-  const handleSpecificSearchInputClick = (specificOnClick) => {
+  const handleSpecificSearchInputClick = (specificDepartment, specificYear) => {
     //console.log('clicked in input of specifi search');
-    setSpecificOnClick(specificOnClick);
+    setSpecificDepartment(specificDepartment);
+    setSpecificYear(specificYear);
   };
   useEffect(() => {
-    setSpecificOnClick(specificOnClick);
+    setSpecificDepartment(specificDepartment);
+    setSpecificYear(specificYear);
     console.log(
-      `clicked in input of specifi search which value is ${specificOnClick}`
+      `clicked in input of specific dep which value is ${specificDepartment}`
+    );
+    console.log(
+      `clicked in input of specific Year which value is ${specificYear}`
     );
   }, [handleSpecificSearchInputClick]);
+
   //when click on specific search bar, 3 bars appear
+
   const handleSpecificSearchClick = () => {
     setOnClickSpecific(true);
   };
+
   // get text from input when click on search
+
   const handleSearchBarClick = () => {
     //console.log('clicked on search');
     setTextInInput(searchInput);
@@ -88,12 +97,13 @@ function Header(props) {
           {' '}
           <SpecificSearchBars
             handleSpecificSearchInputClick={handleSpecificSearchInputClick}
-            title="Search By Department"
+            title="Search By Dept"
             placeholder="Department"
           />
           <SpecificSearchBars
-            title="Search By Category   "
-            placeholder="Category"
+            handleSpecificSearchInputClick={handleSpecificSearchInputClick}
+            title="Search By Year            "
+            placeholder="Year"
           />
           <SpecificSearchBars
             title="Search By Date       "
@@ -103,7 +113,11 @@ function Header(props) {
       ) : (
         <div> </div>
       )}
-      <Nav textInInput={textInInput} />
+      <Nav
+        textInInput={textInInput}
+        specificDepartment={specificDepartment}
+        specificYear={specificYear}
+      />
     </div>
   );
 }

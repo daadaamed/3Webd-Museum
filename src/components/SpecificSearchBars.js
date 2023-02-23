@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import './SpecificSearchBars.css';
 
@@ -16,46 +16,61 @@ function SpecificSearchBars({
   placeholder,
 }) {
   const [specificSearch, setSpecificSearch] = useState('');
-  const [specificOnClick, setSpecificOnClick] = useState('');
+  const [specificDepartment, setSpecificDepartment] = useState('');
+  const [specificYear, setSpecificYear] = useState('');
 
   const handleClick = () => {
     try {
       //console.log(`specific search inside handleclick is ${specificSearch}`);
-      if (
-        specificSearch == 'American Decorative Arts' ||
-        specificSearch == 'Ancient Near Eastern Art' ||
-        specificSearch == 'Arms and Armor' ||
-        specificSearch == 'Arts of Africa, Oceania, and the Americas' ||
-        specificSearch == 'Asian Art' ||
-        specificSearch == 'The Cloisters' ||
-        specificSearch == 'The Costume Institute' ||
-        specificSearch == 'Drawings and Prints' ||
-        specificSearch == 'Egyptian Ar' ||
-        specificSearch == 'European Paintings' ||
-        specificSearch == 'European Sculpture and Decorative Arts' ||
-        specificSearch == 'Greek and Roman Art' ||
-        specificSearch == 'Islamic Art' ||
-        specificSearch == 'The Robert Lehman Collection' ||
-        specificSearch == 'The Libraries' ||
-        specificSearch == 'Medieval Art' ||
-        specificSearch == 'Musical Instruments' ||
-        specificSearch == 'Photographs' ||
-        specificSearch == 'Modern Art'
-      ) {
-        setSpecificOnClick(specificSearch);
-      } else {
-        setSpecificOnClick('');
+      if (title == 'Search By Department') {
+        if (
+          specificSearch == 'American Decorative Arts' ||
+          specificSearch == 'Ancient Near Eastern Art' ||
+          specificSearch == 'Arms and Armor' ||
+          specificSearch == 'Arts of Africa, Oceania, and the Americas' ||
+          specificSearch == 'Asian Art' ||
+          specificSearch == 'The Cloisters' ||
+          specificSearch == 'The Costume Institute' ||
+          specificSearch == 'Drawings and Prints' ||
+          specificSearch == 'Egyptian Art' ||
+          specificSearch == 'European Paintings' ||
+          specificSearch == 'European Sculpture and Decorative Arts' ||
+          specificSearch == 'Greek and Roman Art' ||
+          specificSearch == 'Islamic Art' ||
+          specificSearch == 'The Robert Lehman Collection' ||
+          specificSearch == 'The Libraries' ||
+          specificSearch == 'Medieval Art' ||
+          specificSearch == 'Musical Instruments' ||
+          specificSearch == 'Photographs' ||
+          specificSearch == 'Modern Art'
+        ) {
+          setSpecificDepartment(specificSearch);
+          // pass data to parent component
+          //handleSpecificSearchInputClick(specificDepartment, specificYear);
+          console.log(
+            `value is ${specificSearch} when click for ${title} for value of dep ${specificDepartment}`
+          );
+        } else {
+          setSpecificDepartment('');
+        }
       }
-
-      handleSpecificSearchInputClick(specificOnClick);
+      if (title == 'Search By Year   ') {
+        setSpecificYear(specificSearch);
+        // handleSpecificSearchInputClick(specificDepartment, specificYear);
+        console.log(
+          `value is ${specificSearch} when click for ${title} for value of cat: ${specificYear}`
+        );
+      }
     } catch (e) {
       console.error('something went wrong', e);
     }
   };
 
-  // console.log(
-  //   `value is ${specificSearch} when click for ${specificOnClick} in component = ${title}`
-  // );
+  useEffect(() => {
+    if (specificYear != '' || specificDepartment != '') {
+      handleSpecificSearchInputClick(specificDepartment, specificYear);
+    }
+  }, [handleClick]);
   // console.log(
   //   `specific fct is ${handleSpecificSearchInputClick(this.specificOnClick)}`
   // );
