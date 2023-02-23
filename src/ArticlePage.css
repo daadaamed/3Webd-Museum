@@ -1,0 +1,16 @@
+body {
+    background-image: linear-gradient(to right, #c8c8c8, #fefee2);
+}
+
+h1, h4 {
+    color: gray;
+}
+
+h1 {
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+
+img, a {
+    padding-bottom: 30px;
+}

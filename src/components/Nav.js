@@ -42,7 +42,7 @@ function Nav(textInInput) {
     <div className="nav">
       <h2>
         {' '}
-        Welcome to Met Museum!<p>scroll right to discover more</p>
+        Welcome to Met Museum!<p>scroll right to discover more (shift + scroll)</p>
       </h2>
 
       <div className="nav__posters">
