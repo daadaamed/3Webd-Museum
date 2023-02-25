@@ -66,8 +66,11 @@ function ArticlePage() {
         </h4>
         <h4>department of {article.department}</h4>
         <br />
-        <p>description: {wikipediaDescription}</p>
-        <a href={newUrl}>Learn more about this article in wikipedia</a>
+        <p>{wikipediaDescription}</p>
+        <p>Learn more about this article :</p>
+        <a href={article.objectWikidata_URL}>Wikidata</a>
+        <br/>
+        <a href={newUrl}>Wikipedia</a>
       </div>
     </div>
   );
