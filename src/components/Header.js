@@ -97,17 +97,13 @@ function Header(props) {
           {' '}
           <SpecificSearchBars
             handleSpecificSearchInputClick={handleSpecificSearchInputClick}
-            title="Search By Dept"
+            title="Search By Department"
             placeholder="Department"
           />
           <SpecificSearchBars
             handleSpecificSearchInputClick={handleSpecificSearchInputClick}
-            title="Search By Year            "
+            title="Search By Year   "
             placeholder="Year"
-          />
-          <SpecificSearchBars
-            title="Search By Date       "
-            placeholder="Date"
           />{' '}
         </div>
       ) : (
