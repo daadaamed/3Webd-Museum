@@ -2,6 +2,12 @@
 
 It's a school project for the React course. It is an app to show museum articles.
 
+## demo
+
+https://user-images.githubusercontent.com/77280622/221431286-df3240d8-2fba-4b50-98cf-b37597d3ccd7.mp4
+
+
+
 ## Configuration
 
 These modules are used in the project:
@@ -23,3 +29,4 @@ You may also see any lint errors in the console.
 ### `npm test`
 
 Launches the tests with mocha
+
