@@ -1,7 +1,7 @@
 /** @format */
 
 import * as React from 'react';
-import Header from './Header';
+import Header from './Header.js';
 function HomeScreen() {
   //  ----------- NEXT TASKS ------------------------- //
   // when click search, update photos related to that search

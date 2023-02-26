@@ -1,8 +1,8 @@
 /** @format */
 
 import React, { useEffect, useState, useRef } from 'react';
-import SpecificSearchBars from './SpecificSearchBars';
-import Nav from './Nav';
+import SpecificSearchBars from './SpecificSearchBars.js';
+import Nav from './Nav.js';
 import './Header.css';
 
 // ---- The header component which contains a background image and the search bar and the button search ---- //

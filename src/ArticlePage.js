@@ -1,7 +1,7 @@
 /** @format */
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Header from './components/Header';
+import Header from './components/Header.js';
 import axios from 'axios';
 import './ArticlePage.css';
 
@@ -20,8 +20,9 @@ function ArticlePage() {
     async function fetchData() {
       let request = await axios.get(url);
       setArticle(request.data);
-      console.log(`newUrl is `);
 
+      console.log(`newUrl is `);
+      // sets the url for the wikipedia article
       setNewUrl(`${newUrl}${article.title.replace(/ /gi, '_')}`);
     }
     console.log(`newUrl2 is ${newUrl} `);
@@ -32,6 +33,7 @@ function ArticlePage() {
     setIsLoading(false);
   }, [url]);
 
+  // scrolls to the article when load is completed
   if (!isLoading) {
     setTimeout(function () {
       var scrollDiv = document.getElementById('art');
@@ -42,9 +44,6 @@ function ArticlePage() {
       });
     }, 100);
   }
-  // let titleOrigin = article.title;
-  // var titleColled = titleOrigin.replace(/ /gi, '_');
-  // let wikiUrl = `https://en.wikipedia.org/wiki/${titleColled}`;
 
   return isLoading ? (
     <img

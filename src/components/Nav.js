@@ -1,9 +1,9 @@
 /** @format */
 
 import React, { useEffect, useState } from 'react';
-import axios from './axios';
+import axios from './axios.js';
 import './Nav.css';
-import Row from './Row';
+import Row from './Row.js';
 // ---- This page contains the articles to show from API ---- //
 
 function Nav({ textInInput, specificDepartment, specificYear }) {

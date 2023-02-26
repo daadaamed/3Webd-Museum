@@ -1,9 +1,9 @@
 /** @format */
 import * as React from 'react';
-import HomeScreen from './components/HomeScreen';
+import HomeScreen from './components/HomeScreen.js';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import ArticlePage from './ArticlePage';
-import NotFound from './notFound';
+import ArticlePage from './ArticlePage.js';
+import NotFound from './notFound.js';
 import './App.css';
 
 // ----- This page will keep all page navigation within the website ----- //
