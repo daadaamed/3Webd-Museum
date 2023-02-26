@@ -58,8 +58,7 @@ function Header(props) {
       >
         <div className="header__contents">
           <h3 className="header__title">
-            This a gallery museum articles. Enjoy this artifacts and art
-            collection. Type anything to learn about it in more details.
+            Gallery of Met Museum articles. Discover ancient artifacts and arts. Type anything to learn about it in more details.
           </h3>
           <div className="header__buttons">
             <input
